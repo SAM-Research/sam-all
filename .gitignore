@@ -3,3 +3,5 @@ denim-on-sam/
 deployment/
 sam-dispatch/
 sam-cli/
+test-client/
+health-service/
