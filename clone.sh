@@ -6,9 +6,17 @@ REPOS=(
   "git@github.com:SAM-Research/deployment.git"
   "git@github.com:SAM-Research/sam-dispatch.git"
   "git@github.com:SAM-Research/sam-cli.git"
+  "git@github.com:SAM-Research/test-client.git"
+  "git@github.com:SAM-Research/health-service.git"
 )
 
 for repo in "${REPOS[@]}"; do
+  dir_name=$(basename "$repo" .git)
+  if [ -d "$dir_name" ]; then
+    echo "📁 $dir_name already exists, skipping..."
+    continue
+  fi
+
   echo "Cloning $repo..."
   if git clone "$repo"; then
     echo "✅ Cloned $repo"
